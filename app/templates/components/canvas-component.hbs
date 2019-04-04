@@ -1,0 +1,5 @@
+<div onclick={{action 'putDot'}} style="position:absolute; width:1000px; height:1000px;">
+    {{#each this.dots as |dot|}}
+        {{#dot-component x=dot.x y=dot.y}}{{/dot-component}}
+    {{/each}}
+</div>

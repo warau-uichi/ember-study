@@ -1,0 +1,13 @@
+@import "ember-paper";
+#viewport {
+    position: relative;
+    float: left;
+    width: 100%;
+    canvas {
+        position: absolute;
+        pointer-events: none;
+    }
+    .editable {
+        pointer-events: auto;
+    }
+}

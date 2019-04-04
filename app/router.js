@@ -7,6 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('about');
+  this.route('events');
+  this.route('canvas');
+  this.route('animated-canvas');
 });
 
 export default Router;

@@ -1,0 +1,19 @@
+<h2 {{ action "toggleShowingSomething" }}>Events</h2>
+<button {{action "sayHello"}}>Say!</button>
+{{#if isShowingSomething}}
+  <p>
+    Something !
+  </p>
+{{/if}}
+<hr />
+<h3>Add Something</h3>
+{{#paper-form onSubmit=(action "submitAction") as |form|}}
+  {{paper-input class="flex-30" label="Name" placeholder="Enter Name" value=name onChange=(action (mut name))}}
+  {{paper-input textarea=true block=true label="Biography" maxlength=150 passThru=(hash rows=5 maxRows=5)
+value=biography onChange=(action (mut biography))}}
+  {{paper-input class="flex-40" label="Cron" placeholder="* * * * * *" value=cron onChange=(action (mut cron)) onBlur=(action "validateCron")}}
+  <p>res: {{results}}</p>
+  {{#form.submit-button raised=true primary=true}}
+    Submit
+  {{/form.submit-button}}
+{{/paper-form}}

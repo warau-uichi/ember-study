@@ -1,0 +1,32 @@
+<h2>Here is animated-canvas!</h2>
+
+<label>Icon:</label>
+{{input value=icon type="file" change=(action "uploadIcon")}}
+<label>Forward Audio:</label>
+{{input value=forward_audio type="file" change=(action "uploadForwardAudio")}}
+<label>Backward Audio:</label>
+{{input value=backfard_audio type="file" change=(action "uploadBackwardAudio")}}
+<label>Draggable Icon:</label>
+{{input value=draggable_icon type="file" change=(action "uploadDraggableIcon")}}
+
+<p>Switch Editable Layer</p>
+<button {{action "editOnDotLineLayer"}}>Edit Dot-line layer</button>
+<button {{action "editOnDraggableIcon"}}>Edit Draggable-icon layer</button>
+
+<button {{action "stepForward"}}>Step forward &#x25b6;</button>
+<button {{action "stepBackward"}}>&#x25c0; Step backward</button>
+<div id="viewport">
+  {{#animated-canvas-component
+    is_editable = this.edit_on_dot_line_layer}}
+  {{/animated-canvas-component}}
+  {{#animated-canvas-component2
+   icon_src = this.icon_src
+   next_step = this.next_step
+   forward_audio_file = this.forward_audio_file
+   backward_audio_file = this.backward_audio_file}}
+  {{/animated-canvas-component2}}
+  {{#animated-canvas-component3
+   is_editable = this.edit_on_draggable_icon_layer
+   draggable_icon_src = this.draggable_icon_src}}
+  {{/animated-canvas-component3}}
+</div>
